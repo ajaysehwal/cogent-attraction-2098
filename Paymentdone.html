@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+
+    <style>
+        #succ>img{
+            width: 300px;
+            height:200px;
+            border-radius:20px;
+            }
+            #succ{
+                text-align: center;
+                margin-top: 100px;
+            }
+            #succ>h1{
+                font-size: 40px;
+                color:green;
+                margin-bottom: 20px;
+            }
+            #succ>button{
+                color:red;
+                border: 2px solid red;
+                width: 100px;
+                border-radius: 5px;
+                height: 35px;
+                margin-top: 15px;
+            }
+            #succ>button:hover{
+                border: 2px solid black;
+                color:white;
+                background-color: black;
+            }
+            #succ>p{
+                margin-top:-15px;
+                color: darkgreen;
+            }
+    </style>
+      <style>
+        * {
+      box-sizing: border-box;
+    }
+     
+    html,
+    body {
+      font-family: 'Montserrat', sans-serif;
+      
+      width: 100%;
+      background:white;
+    }
+    .checkout-panel {
+      display: flex;
+      flex-direction: column;
+      width: 940px;
+      height: 900px;
+      margin: auto;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+    }
+    .panel-body {
+      padding: 45px 80px 0;
+      flex: 1;
+    }
+     
+    .title {
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 40px;
+      color: #2e2e2e;
+    }
+    .progress-bar {
+      display: flex;
+      margin-bottom: 50px;
+      justify-content: space-between;
+      margin-top: -50px;
+    }
+     
+    .step {
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 25px;
+      height: 25px;
+      margin-bottom: 30px;
+      border: 4px solid #fff;
+      border-radius: 50%;
+      background-color: #efefef;
+    }
+     
+    .step:after {
+      position: absolute;
+      z-index: -1;
+      top: 5px;
+      left: 22px;
+      width: 225px;
+      height: 6px;
+      content: '';
+      background-color: #efefef;
+    }
+     
+    .step:before {
+      color: #2e2e2e;
+      position: absolute;
+      top: 40px;
+    }
+     
+    .step:last-child:after {
+      content: none;
+    }
+     
+    .step.active {
+      background-color: #1abc9c;
+    }
+    .step.active:after {
+      background-color: #1abc9c;
+    }
+    .step.active:before {
+      color: #1abc9c;
+    }
+    .step.active + .step {
+      background-color: #1abc9c;
+    }
+    .step.active + .step:before {
+      color: #1abc9c;
+    }
+     
+    .step:nth-child(1):before {
+      content: 'Cart';
+    }
+    .step:nth-child(2):before {
+      right: -40px;
+      content: 'Confirmation';
+    }
+    .step:nth-child(3):before {
+      right: -30px;
+      content: 'Payment';
+    }
+    .step:nth-child(4):before {
+      right: 0;
+      content: 'Finish';
+    }
+    .payment-method {
+      display: flex;
+      margin-bottom: 60px;
+      justify-content: space-between;
+    }
+     
+    .method {
+      display: flex;
+      flex-direction: column;
+      width: 382px;
+      height: 122px;
+      padding-top: 20px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      background-color: rgb(249, 249, 249);
+      justify-content: center;
+      align-items: center;
+    }
+     
+    .card-logos {
+      display: flex;
+      width: 150px;
+      justify-content: space-between;
+      align-items: center;
+    }
+     
+    .radio-input {
+      margin-top: 20px;
+    }
+     
+    input[type='radio'] {
+      display: inline-block;
+    }
+    .input-fields {
+      display: flex;
+      justify-content: space-between;
+    }
+     
+    .input-fields label {
+      display: block;
+      margin-bottom: 10px;
+      color: #b4b4b4;
+    }
+     
+    .info {
+      font-size: 12px;
+      font-weight: 300;
+      display: block;
+      margin-top: 50px;
+      opacity: .5;
+      color: #2e2e2e;
+    }
+     
+    div[class*='column'] {
+      width: 382px;
+    }
+     
+    input[type='text'],
+    input[type='password'] {
+      font-size: 16px;
+      width: 100%;
+      height: 50px;
+      padding-right: 40px;
+      padding-left: 16px;
+      color: rgba(46, 46, 46, .8);
+      border: 1px solid rgb(225, 225, 225);
+      border-radius: 4px;
+      outline: none;
+    }
+     
+    input[type='text']:focus,
+    input[type='password']:focus {
+      border-color: rgb(119, 219, 119);
+    }
+     
+    #date { background: url(img/icons_calendar_black.png) no-repeat 95%; }
+    #cardholder { background: url(img/icons_person_black.png) no-repeat 95%; }
+    #cardnumber { background: url(img/icons_card_black.png) no-repeat 95%; }
+    #verification { background: url(img/icons_lock_black.png) no-repeat 95%; }
+     
+    .small-inputs {
+      display: flex;
+      margin-top: 20px;
+      justify-content: space-between;
+    }
+     
+    .small-inputs div {
+      width: 182px;
+    }
+    .panel-footer {
+      display: flex;
+      width: 100%;
+      height: 96px;
+      padding: 0 80px;
+      background-color: rgb(239, 239, 239);
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn {
+      font-size: 16px;
+      width: 163px;
+      height: 48px;
+      cursor: pointer;
+      transition: all .2s ease-in-out;
+      letter-spacing: 1px;
+      border: none;
+      border-radius: 23px;
+    }
+     
+    .back-btn {
+      color: #1abc9c;
+      background: #fff;
+    }
+     
+    .next-btn {
+      color: #fff;
+      background: #1abc9c;
+    }
+     
+    .btn:focus {
+      outline: none;
+    }
+     
+    .btn:hover {
+      transform: scale(1.1);
+    }
+    .blue-border {
+      border: 1px solid rgb(110, 178, 251);
+    }
+    .warning {
+      border-color: #1abc9c;
+    }
+    #container{
+        width: 90%;
+        margin: auto;
+    }
+      </style>
+       <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        #upper{
+            display: flex;
+            justify-content: space-around;
+            gap: 700px;
+            background-color: rgb(242,242,242);
+            position:sticky;
+            width: 100%;
+            margin: auto;
+             
+        }
+        #carti{
+            cursor:pointer;
+        }
+        #upper>div:nth-child(2),#upper>div:nth-child(1){
+            display: flex;
+            
+        }
+        #upper>div:nth-child(2)>img{
+            width: 35px;
+        }
+        #upper>div:nth-child(2)>a,#upper>div:nth-child(1)>a{
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        #upper>div:nth-child(2)>h4,#upper>div:nth-child(1)>h4{
+            margin-top: 10px;
+        }
+        #upper>div:nth-child(1)>h4{
+            color:rgb(226,8,135)
+        }
+        #upper>div>a{
+            color: black;
+        }
+        #upper>div:nth-child(2)>h4{
+            color:rgb(0,86,153)
+        }
+        #logo{
+            width:380px;
+           
+        }
+        #navbar{
+            margin-top: 20px;
+            display: flex;
+            margin: auto;
+            margin-top: 20px;
+            
+        }
+        #items>div:nth-child(1)>img{
+          width: 400px;
+          margin-top: 20px;
+        }
+        #items>div:nth-child(2)>img{
+            width: 40px;
+            margin-left: 5px;
+            height: 40px;
+        }
+        #items{
+            display: flex;
+            gap: 100px;
+            padding: 10px;
+            position:relative;
+        }
+        #items>div:nth-child(2)>input{
+            width:280px;
+            padding: 5px;
+            height: 40px;
+            font-size: 15px;
+            margin-top: 5px;
+            
+        }
+        #items>div:nth-child(2)>i{
+            margin-left: -10px;
+            margin-top: 10px;
+        }
+        
+        #half{
+     width: 40%;
+        }
+       #items>div:nth-child(2){
+        padding: 10px;
+        gap: 17px;
+        display: flex;
+       }
+       #items>div:nth-child(2)>.acc{
+        border-radius: 100%;
+       }
+       #menubars{
+        display: flex;
+        margin-top: 10px;
+        justify-content: space-around;
+        font-family: Trade Gothic W01 Light,Arial,sans-serif ;
+    }
+    #menubars>p{
+        cursor: pointer;
+    }
+    #bodycare{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        position: absolute;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        width: 100%;
+        display:none;
+}
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  background-color: #ffffff;
+  width:80%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content div {
+  padding: 10px 5px;
+}
+
+.dropdown-content .heads>h3:hover {
+  background-color: #eaeaea;
+}
+.dropdown-content>.second{
+    display: none;
+ }
+ .dropdown-content>.heads{
+    display: grid;
+    gap: 30px;
+    padding: 30px;
+ }
+ .dropdown-content>.heads>.dropinner>.second{
+    display: none;
+ }
+ .dropdown:hover .dropdown-content{
+  display: block;
+}
+#dropdown:hover .dropdown-content{
+    display: block;
+}
+
+ .dropdown-content>.heads>.dropinner:hover .second{
+    display: block;
+ }
+ .dropdown-content>.heads>.dropinner:hover .second>p:hover{
+    background-color: #eaeaea;
+ }
+ .dropdown-content>.heads>.dropinner:hover h4:hover{
+    color: blue;
+ }
+ #dropdown>.dropdown-content{
+    display: none;
+ }
+ #menubars>p:hover{
+    border-bottom: 3px solid blue ;
+ }
+ #menubars>.dropdown>p:hover{
+ border-bottom: 3px solid blue ;
+ }
+ #menubars>.dropdown>.dropbtn_last:hover{
+    border-bottom: 3px solid red;
+ }
+ 
+ #vips{
+   text-align: center;
+   background-color: rgb(230,245,255);
+   padding: 10px;
+   font-family: TradeGothicLTW05-BoldNo\.2,Arial,sans-serif;
+}
+#vips>h3{
+    color: rgb(24,118,181);
+    font-family: TradeGothicLTW05-BoldNo\.2,Arial,sans-serif;
+    font-size: 15px;
+}
+#headimg{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+#headimg>img{
+    width:100%
+}
+@media only screen and (max-width:1000px){
+           #items>div:nth-child(2){
+            display: none;
+           }
+           #items>div:nth-child(1){
+              margin: auto;
+              width: 700px;
+              display: flex;
+              justify-content: space-evenly;
+           }
+           #half{
+            width: 0px;
+           }
+           #items{
+            display: flex;
+            justify-content:none;
+           }
+         }
+    @media only screen and (max-width:1000px){
+           #upper{
+            display: none;
+           }
+           #logo{
+            margin-left: -100px;
+        }
+        }
+        #menuicon0{
+            width: 30px;
+            height: 30px;
+            margin-left: -190px;
+            display: none;
+
+        }
+       
+        #menuicon1{
+            width: 30px;
+            height: 30px;
+            margin-left: -370px;
+            display: none;
+
+        }
+        
+         @media only screen and (max-width:1000px){
+            #menuicon0{
+                display: block;
+            }
+            #menuicon1{
+                display: block;
+            }
+            #menuicon2{
+            width: 30px;
+            height: 30px;
+            margin-left: -320px;
+            display: block;
+     
+        }
+        #menubars{
+            display: none;
+            
+        }
+        }
+        #menubars1{
+            display: none;
+            position:absolute;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            height: 400px;
+            align-items: right;
+            width: 50%;
+            padding: 20px;
+            background-color:white;
+            border-radius: 5px;
+            
+        }
+       #search0{
+        font-size: 20px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        width: 300px;
+       }
+       #menubars1>p:hover{
+        background-color: beige;
+       }
+       #menubars1>.dropdown>p:hover{
+        background-color: beige;
+       }
+       #acc{
+        cursor: pointer;
+       }
+       #today_offer>div{
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+        text-align: center;
+        gap: 20px;
+        padding: 30px;
+        font-family: TradeGothicLTW05-BoldNo\.2,Arial,sans-serif;
+        background-color: rgb(242,242,242);
+       }
+       #today_offer>div>div{
+        background-color: #ffffff;
+        padding: 30px;
+        
+        border-radius: 5px;
+        
+       }
+       #today_offer{
+         text-align: center;
+         background-color: rgb(242,242,242);
+         margin-top: 40px;
+         padding: 15px;
+         width: 100%;
+         margin: auto;
+         font-family: TradeGothicLTW05-BoldNo\.2,Arial,sans-serif;
+
+
+       }
+       #todayshop{
+        padding: 5px;
+        font-size: 20px;
+        width:150px;
+        margin-top: 20px;
+        background-color: rgb(51,51,51);
+        color: white;
+        border:rgb(51,51,51);
+        border-radius: 2px;
+       }
+       #todayshop:hover{
+        background-color: antiquewhite;
+        color: rgb(51,51,51) ;
+       }
+       #today_offer>h1{
+        margin-top: 20px;
+       }
+       @media only screen and (max-width:600px){
+        #today_offer>div{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+        }
+       }
+       @media only screen and (max-width:1000px){
+        #today_offer>div{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+        }
+       }
+       #category>div{
+        text-align: center;
+        display: grid;
+        gap: 10px;
+        
+        grid-template-columns: repeat(6,1fr);
+       }
+       #category{
+        text-align: center;
+        width: 90%;
+        margin: auto;
+        padding: 40px;
+        margin-top: 40px;
+        font-family: TradeGothicLTW05-BoldNo\.2,Arial,sans-serif;
+}
+     #category>h1{
+        margin-bottom: 20px;
+        margin-top: -30px;
+     }
+      #catimg{
+        width: 200px;
+      }
+      #atext{
+        font-size: 17px;
+        border-bottom: 1px solid black;
+        width: 120px;
+        margin: auto;
+      }
+      #atext:hover{
+        border-bottom:none;
+      }
+      @media only screen and (max-width:600px){
+        #category>div{
+            grid-template-columns: repeat(2,1fr);
+
+        }
+    }
+        @media only screen and (max-width:1000px){
+        #category>div{
+            grid-template-columns: repeat(3,1fr);
+
+        }
+    }
+    #homeimg{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        width: 90%;
+        margin: auto;
+        gap: 30px;
+        margin-top: 20px;
+        text-align: center;
+        font-family: TradeGothicLTW05-BoldNo\.2,Arial,sans-serif;
+
+    }
+    #homeimg>div>h5{
+        margin-top: 10px;
+        font-size: 15px;
+        border-bottom: 1px solid black;
+        width: 150px;
+        margin: auto;
+        
+    }
+    #homeimg>div>h5:hover{
+        border-bottom: none;
+    }
+    #homeimg>div{
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    @media only screen and (max-width:1000px){
+        #homeimg{
+            grid-template-columns: repeat(1,1fr);
+        }
+    }#homelast{
+        width: 90%;
+        margin: auto;
+        margin-top: 60px;
+    }
+    #homelast>img{
+        width: 100%;
+    }
+    #lastbtn{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        margin: auto;
+        width: 90%;
+       gap: 20px;
+       margin-top: 40px;
+    }
+    #lastbtn>button{
+    padding: 17px;
+    font-family: TradeGothicLTW05-BoldNo\.2,Arial,sans-serif;
+     background-color:rgb(51,51,51);
+     color: white;
+     border: rgb(51,51,51);
+    font-size: 20px;
+    border-radius: 2px;
+    }
+    #lastbtn>button:hover{
+      background-color: azure;
+      color:rgb(51,51,51);
+    }
+    #lastbtnin{
+        width: 300px;
+    }
+    @media only screen and (max-width:1000px){
+        #lastbtn{
+            grid-template-columns: repeat(3,1fr);
+        }
+    }
+    #lastsimg{
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+        width: 90%;
+        margin: auto;
+        gap: 10px;
+        margin-top: 30px;
+        text-align: center;
+        height:350px ;
+    }
+    #lastsimg>div>img{
+        width: 90%;
+    }
+    #lastsimg>div>a{
+        font-size: 21px;
+        color:rgb(51,51,51)
+    
+    }
+    @media only screen and (max-width:1000px){
+        #lastsimg{
+            grid-template-columns: repeat(3,1fr);
+            width:80%;
+            margin: auto            
+            ;
+        }
+      
+    }
+    #container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        text-align: center;
+       height: 50px;
+       width: 90%;
+       font-family: TradeGothicLTW05-BoldNo\.2,Arial,sans-serif;
+
+       margin: auto;
+    }
+    @media only screen and (max-width:1000px){
+        #container{
+        display:none;
+        }
+        
+    }
+    #container>div:nth-child(3){
+        width:500px;
+    }
+    #container.div:nth-child(1){
+        width:400px;
+    }
+   
+    
+   
+    #instatext>div{
+        display: flex;
+        text-align: center;
+    }
+    #instatext>div>img{
+        width:30px;
+        margin: auto;
+        height: 30px;
+    }
+    #instatext>div>h3{
+        margin: auto;
+    
+    }
+    #instatext>p{
+     margin-top:1px;
+     margin-left: 15px;
+    }
+    #empty{
+        height:0px;
+        border: 1px solid gray;
+        background-color: gray;
+        width: 500px;
+        margin-top: 22px;
+    }
+    #instatext{
+        width: 350px;
+        height: 50px;
+    }
+    .wrapper{
+        width: 70%;
+        margin: auto;
+        margin-top: 40px;
+        height: 420px;
+    }
+    .fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+.fa:hover {
+            opacity: 0.9;
+        }
+  
+        .fa-linkedin {
+            background: #007bb5;
+            color: white;
+           
+        }
+  
+        .fa-pinterest {
+            background: #cb2027;
+            color: white;
+        }
+  
+        .fa-reddit {
+            background: #ff5700;
+            color: white;
+        }
+        .fa-instagram{
+          background-color:deeppink;
+          color: white;
+        }
+        #footer{
+          display: grid;
+          grid-template-columns: repeat(2,1fr);
+          margin-top: -300px;
+          width: 90%;
+          margin: auto;
+          font-family: Trade Gothic W01 Light,Arial,sans-serif;
+        }
+        #footertext{
+          display: grid;
+          grid-template-columns: repeat(4,1fr);
+          gap: 30px;
+        }
+        #footertext>div>p:hover{
+        color:blue
+        }
+        #footertext>div>p{
+          cursor: pointer;
+          margin-top: 10px;
+        }
+        #footer>.sub{
+          display: grid;
+          width: 65%;
+          padding: 30px;
+
+        }
+
+        #footer>.sub>input{
+          margin-bottom:10px ;
+          padding: 5px;
+          width: 300px;
+          
+          border:1px solid silver
+        }
+        #subsubmit{
+            background-color: rgb(51,51,51);
+            color: white;
+            width:100px;
+            font-size:20px;
+            border-radius: 5px;
+            border:rgb(51,51,51);
+        }
+        #subsubmit:hover{
+           color: rgb(51,51,51);
+           background-color: white;
+           border: white;
+        }
+      .social{
+          gap: 15px;
+         margin-top: 10px;
+        }
+        #lastfooter{
+          width: 100%;
+          margin: auto;
+          background-color:rgb(242,242,242);
+          padding: 50px;
+          text-align: center;
+          font-size: 15px;
+          font-family: Trade Gothic W01 Light,Arial,sans-serif;
+
+        }
+        #lastfooter>p{
+          width:90%;
+        }
+        @media only screen and (max-width:1000px){
+            #footer{
+                grid-template-columns: repeat(1,1fr);
+                
+            }
+            #footertext{
+                display: none;
+            }
+            
+        }
+       
+        
+        #footerc{
+            background-color:silver;
+            width: 100%;
+            margin: auto;
+            padding: 15px;
+            display: none;
+        }
+        @media only screen and (max-width:1000px){
+            #footerc{
+                display: block;
+            }
+        }
+        #footertext>div>h5{
+            margin-top: 10px;
+        }
+        
+       
+    </style>
+</head>
+<body>
+  <div id="upper">
+    <div><h4>POINTS. PERKS. EXCLUSIVES.
+    </h4><a href="">Join Rewards!</a></div>
+    <div><img src="https://img.icons8.com/arcade/128/experimental-marker-arcade.png" alt="">
+    <h4>PICK UP IN STORE</h4>
+<a href="">Set Store</a></div>
+</div>
+<div id="navbar">
+    <div id="half"></div>
+    <div id="items">
+    <div>
+        <img id="menuicon0" src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.219/on/demandware.static/Sites-BathAndBodyWorks-Site/-/default/dw9c779ec5/images/svg-icons/UI-Menu-v2.svg?yocs=o_s_" alt="">
+        <div id="menubars1">
+            <input type="text" name="" id="search0" placeholder="Search by fragrance or product...">
+
+            <p style="cursor:pointer;" onclick="topfun()">TOP OFFFERS</p>
+        <span class="dropdown">
+                <p class="dropbtn" style="cursor: pointer;"onclick="bodycare()">BODY CARE</p>
+                <div class="dropdown-content">
+                        <div class="heads">
+                         <span class="dropinner">
+                            <h5 style="cursor: pointer;">NEW & NOW</h5>
+                            <div class="second">
+                                <p>|  All Aromatherapy</p></div>
+                           </span>
+                         <span class="dropinner">
+                         <h5 style="cursor: pointer;">BATH & SHOWER</h5>
+                         <div class="second">
+                            <p>All Bath & Shower</p>
+                            <p>Body Wash & Showergel</p>
+                            <p>Body Scrub</p>
+                           </div>
+                        </span>
+                        <span class="dropinner">
+                            <h5 style="cursor: pointer;">MOISTURIZERS</h5>
+                            <div class="second">
+                            <p>All Moisturizers</p>
+                                <p>Body Lotion</p>
+                                <p>Body Cream</p>
+                                <p>Hand Cream</p>
+                              </div>
+                           </span>
+                           <span class="dropinner">
+                            <h5 style="cursor: pointer;">FRAGRANCE</h5>
+                            <div class="second">
+                                <p>All Fragrance</p>
+                                <p>Body Sprays & Mists</p>
+                                <p>Perfume & Cologne</p>
+                              </div>
+                           </span>
+                           <span class="dropinner">
+                            <h5 style="cursor: pointer;">EXPLORE BODYCARE</h5>
+                            <div class="second">
+                                <h5>BodyCare Offers:</h5>
+                         <p>Buy 3, Get 1 Free All Full Size Body Care</p>
+                         <p>3/$12 Shea Butter Cleansing Bars</p>
+                         <p>Buy 3,Get 1 Free Select Travel, Hand & Lip Care</p>
+                              </div>
+                           </span>
+                        </div>
+                       </div>
+                    </span>
+        <span class="dropdown">
+                         <p class="dropbtn" style="cursor: pointer;" onclick="candle()">CANDLES</p>
+                         <div style="width:50%;" class="dropdown-content">
+                                 <div class="heads">
+                                  <span class="dropinner">
+                                     <h5 style="cursor: pointer;">ALL CANDLES</h5>
+                                     <div class="second">
+                                         <p>3 Wick Candled</p>
+                                        <p>Single Wick Candles</p>
+                                    <p>Candles Holders & Accessories</p></div>
+                                    </span>
+                                  <span class="dropinner">
+                                  <h5 style="cursor: pointer;">FEATURED</h5>
+                                  <div class="second">
+                                     <p>The White Barm Shok</p>
+                                    </div>
+                                 </span>
+                                 <span class="dropinner">
+                                     <h5 style="cursor: pointer;">EXPLORE CANDLES</h5>
+                                     <div class="second">
+                                     <h6>Candles Offers:</h6>
+                                     <p>2/$ 22 Single Wick Candles</p>
+                                       </div>
+                                    </span>
+                                    </div>
+                                </div>
+                    </span>
+        <span class="dropdown">
+                                <p class="dropbtn" style="cursor: pointer;" onclick="wall()">WALLFLOWERS & AIR FRESHENERS</p>
+                                <div style="width:50%;"class="dropdown-content">
+                                        <div class="heads">
+                                         <span class="dropinner">
+                                            <h5 style="cursor: pointer;">AIR FRESHENERS</h5>
+                                            <div class="second">
+                                            <p>All Wallflower</p>
+                                            <p>Wallflowers Plugs </p>
+                                            <p>Room Sprays & Mists</p>
+                                            <p>Car Fragrance</p>
+                                             </div>
+                                           </span>
+                                         <span class="dropinner">
+                                         <h5 style="cursor: pointer;">FEATURED</h5>
+                                         <div class="second">
+                                            <p>Auto Refresh Wallflowers</p>
+                                           </div>
+                                        </span>
+                                        <span class="dropinner">
+                                            <h5 style="cursor: pointer;">EXPLORE WALLFLOWERS & AIR FRESHENERS</h5>
+                                            <div class="second">
+                                            <h6>Wallflowers & Air Fresheners Offers:</h6>
+                                            <p>$ 3.95 All Wallflowers Fragrance Refills</p>
+                                             <p>3/$ 10 Car Fragrance Refills</p>
+                                        </div>
+                                           </span>
+                                           </div>
+                                       </div>
+                    </span>
+        <span class="dropdown">
+                <p class="dropbtn" style="cursor: pointer;"onclick="men()">MEN'S SHOP</p>
+                <div style="width:60%;" class="dropdown-content">
+                        <div class="heads">
+                         <span class="dropinner">
+                            <h5 style="cursor: pointer;">THE MEN'S SHOPS</h5>
+                            <div class="second">
+                           <p>All Men's Body Care</p>
+                           <p>Body Wash & Shower get Moisturizers</p>
+                           <p>Body Sprays Cologne</p>
+                           <p>Home Fragrance</p>
+                             </div>
+                           </span>
+                         <span class="dropinner">
+                         <h5 style="cursor: pointer;">EXPLORE MEN'S SHOPS</h5>
+                         <div class="second">
+                            <p>Hand Soap & Sanitizers</p>
+                           </div>
+                        </span>
+                        </div>
+                       </div>
+                     </span>
+        <span class="dropdown">
+                        <p class="dropbtn" style="cursor: pointer;" onclick="gift()">GIFTS</p>
+                        <div style="width:50%;" class="dropdown-content">
+                                <div class="heads">
+                                 <span class="dropinner">
+                                    <h6 style="cursor: pointer;">FEATURED</h6>
+                                    <div class="second">
+                                   <p>Gifts Sets</p>
+                                  </div>
+                                   </span>
+                                 <span class="dropinner">
+                                 <h5 style="cursor: pointer;">GIFTS BY PRICE</h5>
+                                 <div class="second">
+                                    <p>$15 & Under Gifts</p>
+                                    <p>$30 & Under Gifts</p>
+                                    <p>$50 & Under Gifts</p>
+                                </div>
+                                </span>
+                                <span class="dropinner">
+                                    <h5 style="cursor: pointer;">GIFTS BY RECIPIENTS</h5>
+                                    <div class="second">
+                                  <p>Gifts For Hers</p>
+                                  <p>Gifts For Him</p>
+                                  <p>Gifts For Everyone</p>
+                                   </div>
+                                  
+                                </span>
+                                <span class="dropinner">
+                                 <h5 style="cursor: pointer;">FALL SHOP</h5>
+                                 <div class="second">
+                               <p>Gifts Boxes & Bags Accessories</p>
+                                </div>
+                                </span>
+                                <span class="dropinner">
+                                 <h5 style="cursor: pointer;">GIFTS CARDS</h5>
+                                 <div class="second">
+                               <p>E-Gifts Card</p>
+                               <p>Gift Card</p>
+                                </div>
+                                </span>
+                                <span class="dropinner">
+                                 <h5 style="cursor: pointer;">EXPLORE GIFTS</h5>
+                                 <div class="second"></div>
+                                </span>
+                                   
+                                   
+                                </div>
+                               </div>
+                    </span>
+        <span class="dropdown">
+                                <p class="dropbtn_last" style="color:red;cursor: pointer;"onclick="fall()">FALL SHOPS</p>
+                                <div style="width:40%;" class="dropdown-content">
+                                        <div class="heads">
+                                         <span class="dropinner">
+                                            <h5 style="cursor: pointer;">NEW & NOW</h5>
+                                            <div style="margin-left:-30px;"class="second">
+                                           <p>New Arrivals</p>
+                                           <p>Tops Fragrances</p>
+                                           <p>Fall Collection</p>
+                                           <p>Holloween</p>
+                                           <p>Best Sellers</p>
+                                          </div>
+                                           </span>
+                                         <span class="dropinner">
+                                         <h5 style="width:100px;cursor: pointer;">EXPLORE FALL SHOP</h5>
+                                         <div style="margin-left:-30px" class="second">
+                                            <p>Aromatherapy Shop</p>
+                                            <p>Get Inspired</p>
+                                            <p>Shop By Fragrance</p>
+                                        </div>
+                                        </span>
+                                           
+                                        </div>
+                                       </div>
+                     </span>
+        </div>
+        <img id="menuicon1" src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.219/on/demandware.static/Sites-BathAndBodyWorks-Site/-/default/dw40cc94b6/images/svg-icons/UI-Search-v2.svg?yocs=o_s_" alt="">
+        <img id="logo" src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.219/on/demandware.static/Sites-BathAndBodyWorks-Site/-/default/dw22126b8b/images/svg-icons/Logos-main.svg?yocs=o_s_" alt="">
+    </div>
+    <div>
+        <input type="text" name="" id="search" placeholder="Search by fragrance or product...">
+        <i class="fa fa-search" style="font-size:24px;margin-top:-10px;margin-left:-25px ;"></i>
+        <img id="acc" src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.219/on/demandware.static/Sites-BathAndBodyWorks-Site/-/default/dw88f6c71d/images/svg-icons/UI-MyAccount.svg?yocs=o_s_" alt="">
+        
+        <img id="carti"onclick="cart()" src="https://cdn-icons-png.flaticon.com/512/7096/7096688.png" alt="">
+    </div>
+</div>
+</div>
+
+<div id="menubars">
+<p onclick="topfun()">TOP OFFFERS</p>
+<span class="dropdown">
+    <p class="dropbtn" style="cursor: pointer;" onclick="bodycare()">BODY CARE</p>
+    <div class="dropdown-content">
+            <div class="heads">
+             <span class="dropinner">
+                <h4 style="cursor: pointer;">NEW & NOW</h4>
+                <div class="second">
+                    <p>|  All Aromatherapy</p></div>
+               </span>
+             <span class="dropinner">
+             <h4 style="cursor: pointer;">BATH & SHOWER</h4>
+             <div class="second">
+                <p>All Bath & Shower</p>
+                <p>Body Wash & Showergel</p>
+                <p>Body Scrub</p>
+               </div>
+            </span>
+            <span class="dropinner">
+                <h4 style="cursor: pointer;">MOISTURIZERS</h4>
+                <div class="second">
+                <p>All Moisturizers</p>
+                    <p>Body Lotion</p>
+                    <p>Body Cream</p>
+                    <p>Hand Cream</p>
+                  </div>
+               </span>
+               <span class="dropinner">
+                <h4 style="cursor: pointer;">FRAGRANCE</h4>
+                <div class="second">
+                    <p>All Fragrance</p>
+                    <p>Body Sprays & Mists</p>
+                    <p>Perfume & Cologne</p>
+                  </div>
+               </span>
+               <span class="dropinner">
+                <h4 style="cursor: pointer;">EXPLORE BODYCARE</h4>
+                <div class="second">
+                    <h5>BodyCare Offers:</h5>
+             <p>Buy 3, Get 1 Free All Full Size Body Care</p>
+             <p>3/$12 Shea Butter Cleansing Bars</p>
+             <p>Buy 3,Get 1 Free Select Travel, Hand & Lip Care</p>
+                  </div>
+               </span>
+            </div>
+           </div>
+        </span>
+<span class="dropdown">
+             <p class="dropbtn" style="cursor: pointer;" onclick="candle()">CANDLES</p>
+             <div style="width:50%;" class="dropdown-content">
+                     <div class="heads">
+                      <span class="dropinner">
+                         <h4 style="cursor: pointer;">ALL CANDLES</h4>
+                         <div class="second">
+                             <p>3 Wick Candled</p>
+                            <p>Single Wick Candles</p>
+                        <p>Candles Holders & Accessories</p></div>
+                        </span>
+                      <span class="dropinner">
+                      <h4 style="cursor: pointer;">FEATURED</h4>
+                      <div class="second">
+                         <p>The White Barm Shok</p>
+                        </div>
+                     </span>
+                     <span class="dropinner">
+                         <h4 style="cursor: pointer;">EXPLORE CANDLES</h4>
+                         <div class="second">
+                         <h5>Candles Offers:</h5>
+                         <p>2/$ 22 Single Wick Candles</p>
+                           </div>
+                        </span>
+                        </div>
+                    </div>
+        </span>
+<span class="dropdown">
+                    <p class="dropbtn" style="cursor: pointer;" onclick="wall()">WALLFLOWERS & AIR FRESHENERS</p>
+                    <div style="width:50%;"class="dropdown-content">
+                            <div class="heads">
+                             <span class="dropinner">
+                                <h4 style="cursor: pointer;">AIR FRESHENERS</h4>
+                                <div class="second">
+                                <p>All Wallflower</p>
+                                <p>Wallflowers Plugs </p>
+                                <p>Room Sprays & Mists</p>
+                                <p>Car Fragrance</p>
+                                 </div>
+                               </span>
+                             <span class="dropinner">
+                             <h4 style="cursor: pointer;">FEATURED</h4>
+                             <div class="second">
+                                <p>Auto Refresh Wallflowers</p>
+                               </div>
+                            </span>
+                            <span class="dropinner">
+                                <h4 style="cursor: pointer;">EXPLORE WALLFLOWERS & AIR FRESHENERS</h4>
+                                <div class="second">
+                                <h5>Wallflowers & Air Fresheners Offers:</h5>
+                                <p>$ 3.95 All Wallflowers Fragrance Refills</p>
+                                 <p>3/$ 10 Car Fragrance Refills</p>
+                            </div>
+                               </span>
+                               </div>
+                           </div>
+        </span>
+<span class="dropdown">
+    <p class="dropbtn" style="cursor: pointer;" onclick="men()">MEN'S SHOP</p>
+    <div style="width:30%;" class="dropdown-content">
+            <div class="heads">
+             <span class="dropinner">
+                <h4 style="cursor: pointer;">THE MEN'S SHOPS</h4>
+                <div class="second">
+               <p>All Men's Body Care</p>
+               <p>Body Wash & Shower get Moisturizers</p>
+               <p>Body Sprays Cologne</p>
+               <p>Home Fragrance</p>
+                 </div>
+               </span>
+             <span class="dropinner">
+             <h4 style="cursor: pointer;">EXPLORE MEN'S SHOPS</h4>
+             <div class="second">
+                <p>Hand Soap & Sanitizers</p>
+               </div>
+            </span>
+            </div>
+           </div>
+         </span>
+<span class="dropdown">
+            <p class="dropbtn" style="cursor: pointer;" onclick="gift()">GIFTS</p>
+            <div style="width:18%;" class="dropdown-content">
+                    <div class="heads">
+                     <span class="dropinner">
+                        <h4 style="cursor: pointer;">FEATURED</h4>
+                        <div class="second">
+                       <p>Gifts Sets</p>
+                      </div>
+                       </span>
+                     <span class="dropinner">
+                     <h4 style="cursor: pointer;">GIFTS BY PRICE</h4>
+                     <div class="second">
+                        <p>$15 & Under Gifts</p>
+                        <p>$30 & Under Gifts</p>
+                        <p>$50 & Under Gifts</p>
+                    </div>
+                    </span>
+                    <span class="dropinner">
+                        <h4 style="cursor: pointer;">GIFTS BY RECIPIENTS</h4>
+                        <div class="second">
+                      <p>Gifts For Hers</p>
+                      <p>Gifts For Him</p>
+                      <p>Gifts For Everyone</p>
+                       </div>
+                      
+                    </span>
+                    <span class="dropinner">
+                     <h4 style="cursor: pointer;">FALL SHOP</h4>
+                     <div class="second">
+                   <p>Gifts Boxes & Bags Accessories</p>
+                    </div>
+                    </span>
+                    <span class="dropinner">
+                     <h4 style="cursor: pointer;">GIFTS CARDS</h4>
+                     <div class="second">
+                   <p>E-Gifts Card</p>
+                   <p>Gift Card</p>
+                    </div>
+                    </span>
+                    <span class="dropinner">
+                     <h4 style="cursor: pointer;">EXPLORE GIFTS</h4>
+                     <div class="second"></div>
+                    </span>
+                       
+                       
+                    </div>
+                   </div>
+        </span>
+<span class="dropdown">
+                    <p class="dropbtn_last" style="color:red;cursor: pointer;" onclick="fall()">FALL SHOPS</p>
+                    <div style="width:10%;" class="dropdown-content">
+                            <div class="heads">
+                             <span class="dropinner">
+                                <h4 style="margin-left:-40px;cursor: pointer;">NEW & NOW</h4>
+                                <div style="margin-left:-30px;"class="second">
+                               <p>New Arrivals</p>
+                               <p>Tops Fragrances</p>
+                               <p>Fall Collection</p>
+                               <p>Holloween</p>
+                               <p>Best Sellers</p>
+                              </div>
+                               </span>
+                             <span class="dropinner">
+                             <h4 style="margin-left:-40px;width:100px;cursor: pointer;">EXPLORE FALL SHOP</h4>
+                             <div style="margin-left:-30px" class="second">
+                                <p>Aromatherapy Shop</p>
+                                <p>Get Inspired</p>
+                                <p>Shop By Fragrance</p>
+                            </div>
+                            </span>
+                               
+                            </div>
+                           </div>
+         </span>
+</div>
+<div id="vips"><h3>My Bath & Body Works Rewards is now available nationwide!  <a href=""style="color:rgb(24,118,181)">JOIN THE VIPS</a></h3></div>
+        <div class="checkout-panel">
+            <div class="panel-body">
+              <h2 class="title"></h2>
+           <div class="progress-bar">
+                <div class="step active"></div>
+                <div class="step active"></div>
+                <div class="step active"></div>
+                <div class="step"></div>
+                
+              </div>
+              <div id="succ">
+                <img src="https://www.clipartmax.com/png/middle/270-2707415_confirm-icon-payment-success.png" alt="">
+                 <h1>Payment Successful</h1>
+                 <p>You have recevied mail on your Email</p>
+                 <button id="gohome">Go Home</button>
+            </div>
+              </div>
+              </div>
+    
+              <div id="footer">
+                <div class="sub">
+                  <p style="margin-bottom:20px ;">Get email offers & the latest news from Bath & Body Works</p>
+                  <label>Enter Email</label>
+                  <input type="email" name="" id="">
+                  <label for="">Confirm Email</label>
+                  <input type="email" name="" id="">
+                   <input type="submit" name="" id="subsubmit">
+                    <p>GET CONNECTED</p>
+                    <div class="social">
+                      <a href="#" class="fa fa-facebook"></a>
+                      <a href="#" class="fa fa-twitter"></a>
+                      <a href="#" class="fa fa-instagram"></a>
+                      <a href="#" class="fa fa-linkedin"></a>
+                      <a href="#" class="fa fa-pinterest"></a>
+                      <a href="#" class="fa fa-reddit"></a>
+                        </div>
+            </div>
+            <div id="footerc"><h2>LET US HELP</h2></div>
+                  <div id="footertext">
+                    <div>
+                      <h5>CUSTOMER CARE</h5>
+                      <p>Help & FAQs</p>
+                      <p>Shipping</p>
+                      <p>Return & Exchanges</p>
+                      <p>Oder Tracking</p>
+                      <p>Corporate Sales & Gifts</p>
+                      <p>Contact Us</p>
+                    </div>
+                    <div>
+                      <h5>My Account</h5>
+                      <p>Sign In or Sign Up</p>
+                      <p>Order Tracking</p>
+                      <p>My Auto Refresh</p>
+                      <p>My Love-it List</p>
+                    </div>
+                    <div>
+                      <h5>DISCOVER</h5>
+                      <p>About Us</p>
+                      <p>Careers</p>
+                      <p>Gift Cards</p>
+                      <p>Shop by Fragrance</p>
+                      <p>Product Ingredients</p>
+                      <p>Get Inspired</p>
+                      <p>Diversity, Equity & Inclusion</p>
+                    </div>
+                    <div>
+                      <h5>FIND US</h5>
+                      <p>Store Locator</p>
+                      <p>Global Locations</p>
+                    </div>
+                  </div>
+               </div>
+               
+               <div id="lastfooter">
+                <p>Terms Of Use | Privacy Policy | Security Bug Report | States Privacy Rights Notice (Certain States) | Do Not Sell or Share My Personal Information (Certain States) | Transparency in Supply Chains Targeted Ad Preferences (Certain States) | Limit the Use of My Sensitive Personal Information (California) |</p>
+                 <p style="margin-top:30px ;">© 2022 Bath & Body Works Direct, Inc.
+                  All Rights Reserved.</p>
+              </div>
+          
+   
+    </body>
+</html>
+<script>
+    let footer=document.querySelector("#footerc");
+    footer.addEventListener("click",function(){
+        document.querySelector("#footertext").style.display="block"
+    })
+    footer.addEventListener("blur",function(){
+        document.querySelector("#footertext").style.display="none"
+    })
+    document.querySelector("#gohome").addEventListener("click",function(){
+        document.location.href="index.html"
+    })
+    $(document).ready(function() {
+ 
+ $('.method').on('click', function() {
+   $('.method').removeClass('blue-border');
+   $(this).addClass('blue-border');
+ });
+
+})
+var $cardInput = $('.input-fields input');
+
+$('.next-btn').on('click', function(e) {
+
+ $cardInput.removeClass('warning');
+
+ $cardInput.each(function() {    
+    var $this = $(this);
+    if (!$this.val()) {
+      $this.addClass('warning');
+    }
+ })
+});
+
+let img1=document.querySelector("#acc");
+    let search=document.querySelector("#search");
+    let img2=document.querySelector("#carti")
+    search.addEventListener("click",function(){
+        search.style.width="500px"
+       img1.style.display="none"
+       img2.style.display="none"
+    })
+    search.addEventListener("blur",function(){
+        search.style.width="300px"
+       img1.style.display="block"
+       img2.style.display="block"
+    })
+    let body=document.querySelector("body");
+
+    document.getElementById("menuicon1").addEventListener("click",function(){
+        document.querySelector("#menubars1").style.display="grid";
+        document.querySelector("#menuicon0").style.display="none"
+        document.querySelector("#menubars1").style.right="50%";
+       
+
+    })
+    img1.addEventListener("click",function(){
+     document.location.href="signin.html"
+    })
+function topfun(){
+        document.location.href="topoffer.html"
+     }
+     function bodycare(){
+        document.location.href="bodycare.html"
+     }
+     function candle(){
+      document.location.href="candles.html"
+
+     }
+     function wall(){
+        document.location.href="homefragrance.html"
+     }
+     function men(){
+        document.location.href="men.html"
+     }
+     function gift(){
+        document.location.href="gifts.html"
+     }
+     function fall(){
+        document.location.href="fallshop.html"
+     }
+     function cart(){
+        document.location.href="CARTo.html"
+     }
+     document.querySelector("#logo").addEventListener("click",function(){
+        document.location.href="index.html";
+    })
+</script>
