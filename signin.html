@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        #upper{
+            display: flex;
+            justify-content: space-around;
+            gap: 700px;
+            background-color: rgb(242,242,242);
+            position:sticky;
+            width: 100%;
+            margin: auto;
+             
+        }
+        #upper>div:nth-child(2),#upper>div:nth-child(1){
+            display: flex;
+            
+        }
+        #upper>div:nth-child(2)>img{
+            width: 35px;
+        }
+        #upper>div:nth-child(2)>a,#upper>div:nth-child(1)>a{
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        #upper>div:nth-child(2)>h4,#upper>div:nth-child(1)>h4{
+            margin-top: 10px;
+        }
+        #upper>div:nth-child(1)>h4{
+            color:rgb(226,8,135)
+        }
+        #upper>div>a{
+            color: black;
+        }
+        #upper>div:nth-child(2)>h4{
+            color:rgb(0,86,153)
+        }
+        #logo{
+            width:380px;
+           
+        }
+        #navbar{
+            margin-top: 20px;
+            display: flex;
+            margin: auto;
+            margin-top: 20px;
+            
+        }
+        #items>div:nth-child(1)>img{
+          width: 400px;
+          margin-top: 20px;
+        }
+        #items>div:nth-child(2)>img{
+            width: 40px;
+            margin-left: 5px;
+            height: 40px;
+        }
+        #items{
+            display: flex;
+            gap: 100px;
+            padding: 10px;
+            position:relative;
+        }
+        #items>div:nth-child(2)>input{
+            width:280px;
+            padding: 5px;
+            height: 40px;
+            font-size: 15px;
+            margin-top: 5px;
+            
+        }
+        #items>div:nth-child(2)>i{
+            margin-left: -10px;
+            margin-top: 10px;
+        }
+        
+        #half{
+     width: 40%;
+        }
+       #items>div:nth-child(2){
+        padding: 10px;
+        gap: 17px;
+        display: flex;
+       }
+       #items>div:nth-child(2)>.acc{
+        border-radius: 100%;
+       }
+       #menubars{
+        display: flex;
+        margin-top: 10px;
+        justify-content: space-around;
+        font-family: Trade Gothic W01 Light,Arial,sans-serif ;
+    }
+    #menubars>p{
+        cursor: pointer;
+    }
+    #bodycare{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        position: absolute;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        width: 100%;
+        display:none;
+}
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  background-color: #ffffff;
+  width:80%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content div {
+  padding: 10px 5px;
+}
+
+.dropdown-content .heads>h3:hover {
+  background-color: #eaeaea;
+}
+.dropdown-content>.second{
+    display: none;
+ }
+ .dropdown-content>.heads{
+    display: grid;
+    gap: 30px;
+    padding: 50px;
+ }
+ .dropdown-content>.heads>.dropinner>.second{
+    display: none;
+ }
+ .dropdown:hover .dropdown-content{
+  display: block;
+}
+#dropdown:hover .dropdown-content{
+    display: block;
+}
+
+ .dropdown-content>.heads>.dropinner:hover .second{
+    display: block;
+ }
+ .dropdown-content>.heads>.dropinner:hover .second>p:hover{
+    background-color: #eaeaea;
+ }
+ .dropdown-content>.heads>.dropinner:hover h4:hover{
+    color: blue;
+ }
+ #dropdown>.dropdown-content{
+    display: none;
+ }
+ #menubars>p:hover{
+    border-bottom: 3px solid blue ;
+ }
+ #menubars>.dropdown>p:hover{
+ border-bottom: 3px solid blue ;
+ }
+ #menubars>.dropdown>.dropbtn_last:hover{
+    border-bottom: 3px solid red;
+ }
+ #vips{
+   text-align: center;
+   background-color: rgb(230,245,255);
+   padding: 10px;
+   font-family: TradeGothicLTW05-BoldNo\.2,Arial,sans-serif;
+}
+#vips>h3{
+    color: rgb(24,118,181);
+    font-family: TradeGothicLTW05-BoldNo\.2,Arial,sans-serif;
+    font-size: 15px;
+}
+#headimg{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+#headimg>img{
+    width:100%
+}
+@media only screen and (max-width:1000px){
+           #items>div:nth-child(2){
+            display: none;
+           }
+           #items>div:nth-child(1){
+              margin: auto;
+              width: 700px;
+              display: flex;
+              justify-content: space-evenly;
+           }
+           #half{
+            width: 0px;
+           }
+           #items{
+            display: flex;
+            justify-content:none;
+           }
+         }
+    @media only screen and (max-width:1000px){
+           #upper{
+            display: none;
+           }
+           #logo{
+            margin-left: -50px;
+        }
+        }
+        #menuicon0{
+            width: 30px;
+            height: 30px;
+            margin-left: -150px;
+            display: none;
+
+        }
+       
+        #menuicon1{
+            width: 30px;
+            height: 30px;
+            margin-left: -320px;
+            display: none;
+
+        }
+        
+         @media only screen and (max-width:1000px){
+            #menuicon0{
+                display: block;
+            }
+            #menuicon1{
+                display: block;
+            }
+            #menuicon2{
+            width: 30px;
+            height: 30px;
+            margin-left: -320px;
+            display: block;
+     
+        }
+        #menubars{
+            display: none;
+            
+        }
+        }
+        #menubars1{
+            display: none;
+            position:absolute;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            height: 400px;
+            align-items: right;
+            width: 50%;
+            padding: 20px;
+            background-color:white;
+            border-radius: 5px;
+            
+        }
+       #search0{
+        font-size: 20px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        width: 300px;
+       }
+       #menubars1>p:hover{
+        background-color: beige;
+       }
+       #menubars1>.dropdown>p:hover{
+        background-color: beige;
+       }
+       #acc{
+        cursor: pointer;
+       }
+       #signimg{
+            width: 70%;
+            margin: auto;
+        }
+        #signimg>img{
+            width: 100%;
+        }
+        #signtext{
+            width: 70%;
+            margin:auto;
+            font-family: Trade Gothic W01 Light,Arial,sans-serif;
+            font-size: 25px;
+            color: gray;
+            height: 60px;
+        }
+        #signtext>p{
+            border-bottom: 3px solid gray;
+        }
+        #detail{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            width: 70%;
+            margin: auto;
+            height:500px;
+        }
+        #detail>div:nth-child(1){
+          border-right: 1px solid gray;
+        }
+        #detail>div:nth-child(2){
+          border-left: 2px solid gray;
+        }
+        
+        #detail>div:nth-child(1)>div>p{
+            text-align: center;
+            font-family: Trade Gothic W01 Light,Arial,sans-serif;
+
+        }
+        #detail>div>#innerd{
+            display: grid;
+            width: 50%;
+            margin: auto;
+            gap: 5px;
+        }
+        #innerd>label{
+            margin-top: 20px;
+        }
+        #innerd>input{
+            padding: 5px;
+        }
+       #forpass{
+        display: flex;
+        margin: auto;
+        margin-top: 40px;
+        justify-content: center;
+        gap: 45px;
+       }
+       #signsub{
+        text-align: center;
+        background-color: rgb(51,51,51);
+        color: white;
+        font-size: 15px;
+        border: rgb(51,51,51);
+        padding: 5px;
+        width: 120px;
+        
+       }
+       #signsub:hover{
+        background-color: beige;
+        color: black;
+       }
+       #submit{
+        display: grid;
+        text-align: center;
+        gap: 10px;
+        margin: auto;
+        margin-top: 20px;
+        justify-content: center;
+       }
+       #detail{
+        font-family: Trade Gothic W01 Light,Arial,sans-serif;
+        margin-bottom: 100px;
+
+       }
+       #signup{
+        text-align: center;
+       }
+       #signupbtn>button{
+        width: 200px;
+        margin-top:10px;
+       }
+       #signupimg{
+        width: 80%;
+       }
+       #upper_text{
+        font-size: 13px;
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+        color:grey;
+       }
+       @media only screen and (max-width:1000px){
+        #detail{
+            grid-template-columns: repeat(1,1fr);
+            gap:40px
+        }
+        #detail>div:nth-child(2){
+            padding-bottom: 20px;
+        }
+       }
+       #wrong{
+        background-color: rgb(255,233,233);
+        width: 60%;
+        margin: auto;
+        padding: 10px;
+        color: red;
+        margin-top: 10px;
+        display: none;
+       }
+    </style>
+</head>
+<body>
+    <div id="upper">
+        <div><h4>POINTS. PERKS. EXCLUSIVES.
+        </h4><a href="">Join Rewards!</a></div>
+        <div><img src="https://img.icons8.com/arcade/128/experimental-marker-arcade.png" alt="">
+        <h4>PICK UP IN STORE</h4>
+    <a href="">Set Store</a></div>
+    </div>
+    <div id="navbar">
+        <div id="half"></div>
+        <div id="items">
+        <div>
+            <img id="menuicon0" src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.219/on/demandware.static/Sites-BathAndBodyWorks-Site/-/default/dw9c779ec5/images/svg-icons/UI-Menu-v2.svg?yocs=o_s_" alt="">
+            <div id="menubars1">
+                <input type="text" name="" id="search0" placeholder="Search by fragrance or product...">
+
+                <p style="cursor:pointer;" onclick="topfun()">TOP OFFFERS</p>
+            <span class="dropdown">
+                    <p class="dropbtn" style="cursor: pointer;"onclick="bodycare()">BODY CARE</p>
+                    <div class="dropdown-content">
+                            <div class="heads">
+                             <span class="dropinner">
+                                <h5 style="cursor: pointer;">NEW & NOW</h5>
+                                <div class="second">
+                                    <p>|  All Aromatherapy</p></div>
+                               </span>
+                             <span class="dropinner">
+                             <h5 style="cursor: pointer;">BATH & SHOWER</h5>
+                             <div class="second">
+                                <p>All Bath & Shower</p>
+                                <p>Body Wash & Showergel</p>
+                                <p>Body Scrub</p>
+                               </div>
+                            </span>
+                            <span class="dropinner">
+                                <h5 style="cursor: pointer;">MOISTURIZERS</h5>
+                                <div class="second">
+                                <p>All Moisturizers</p>
+                                    <p>Body Lotion</p>
+                                    <p>Body Cream</p>
+                                    <p>Hand Cream</p>
+                                  </div>
+                               </span>
+                               <span class="dropinner">
+                                <h5 style="cursor: pointer;">FRAGRANCE</h5>
+                                <div class="second">
+                                    <p>All Fragrance</p>
+                                    <p>Body Sprays & Mists</p>
+                                    <p>Perfume & Cologne</p>
+                                  </div>
+                               </span>
+                               <span class="dropinner">
+                                <h5 style="cursor: pointer;">EXPLORE BODYCARE</h5>
+                                <div class="second">
+                                    <h5>BodyCare Offers:</h5>
+                             <p>Buy 3, Get 1 Free All Full Size Body Care</p>
+                             <p>3/$12 Shea Butter Cleansing Bars</p>
+                             <p>Buy 3,Get 1 Free Select Travel, Hand & Lip Care</p>
+                                  </div>
+                               </span>
+                            </div>
+                           </div>
+                        </span>
+            <span class="dropdown">
+                             <p class="dropbtn" style="cursor: pointer;" onclick="candle()">CANDLES</p>
+                             <div style="width:50%;" class="dropdown-content">
+                                     <div class="heads">
+                                      <span class="dropinner">
+                                         <h5 style="cursor: pointer;">ALL CANDLES</h5>
+                                         <div class="second">
+                                             <p>3 Wick Candled</p>
+                                            <p>Single Wick Candles</p>
+                                        <p>Candles Holders & Accessories</p></div>
+                                        </span>
+                                      <span class="dropinner">
+                                      <h5 style="cursor: pointer;">FEATURED</h5>
+                                      <div class="second">
+                                         <p>The White Barm Shok</p>
+                                        </div>
+                                     </span>
+                                     <span class="dropinner">
+                                         <h5 style="cursor: pointer;">EXPLORE CANDLES</h5>
+                                         <div class="second">
+                                         <h6>Candles Offers:</h6>
+                                         <p>2/$ 22 Single Wick Candles</p>
+                                           </div>
+                                        </span>
+                                        </div>
+                                    </div>
+                        </span>
+            <span class="dropdown">
+                                    <p class="dropbtn" style="cursor: pointer;" onclick="wall()">WALLFLOWERS & AIR FRESHENERS</p>
+                                    <div style="width:50%;"class="dropdown-content">
+                                            <div class="heads">
+                                             <span class="dropinner">
+                                                <h5 style="cursor: pointer;">AIR FRESHENERS</h5>
+                                                <div class="second">
+                                                <p>All Wallflower</p>
+                                                <p>Wallflowers Plugs </p>
+                                                <p>Room Sprays & Mists</p>
+                                                <p>Car Fragrance</p>
+                                                 </div>
+                                               </span>
+                                             <span class="dropinner">
+                                             <h5 style="cursor: pointer;">FEATURED</h5>
+                                             <div class="second">
+                                                <p>Auto Refresh Wallflowers</p>
+                                               </div>
+                                            </span>
+                                            <span class="dropinner">
+                                                <h5 style="cursor: pointer;">EXPLORE WALLFLOWERS & AIR FRESHENERS</h5>
+                                                <div class="second">
+                                                <h6>Wallflowers & Air Fresheners Offers:</h6>
+                                                <p>$ 3.95 All Wallflowers Fragrance Refills</p>
+                                                 <p>3/$ 10 Car Fragrance Refills</p>
+                                            </div>
+                                               </span>
+                                               </div>
+                                           </div>
+                        </span>
+            <span class="dropdown">
+                    <p class="dropbtn" style="cursor: pointer;"onclick="men()">MEN'S SHOP</p>
+                    <div style="width:60%;" class="dropdown-content">
+                            <div class="heads">
+                             <span class="dropinner">
+                                <h5 style="cursor: pointer;">THE MEN'S SHOPS</h5>
+                                <div class="second">
+                               <p>All Men's Body Care</p>
+                               <p>Body Wash & Shower get Moisturizers</p>
+                               <p>Body Sprays Cologne</p>
+                               <p>Home Fragrance</p>
+                                 </div>
+                               </span>
+                             <span class="dropinner">
+                             <h5 style="cursor: pointer;">EXPLORE MEN'S SHOPS</h5>
+                             <div class="second">
+                                <p>Hand Soap & Sanitizers</p>
+                               </div>
+                            </span>
+                            </div>
+                           </div>
+                         </span>
+            <span class="dropdown">
+                            <p class="dropbtn" style="cursor: pointer;" onclick="gift()">GIFTS</p>
+                            <div style="width:50%;" class="dropdown-content">
+                                    <div class="heads">
+                                     <span class="dropinner">
+                                        <h6 style="cursor: pointer;">FEATURED</h6>
+                                        <div class="second">
+                                       <p>Gifts Sets</p>
+                                      </div>
+                                       </span>
+                                     <span class="dropinner">
+                                     <h5 style="cursor: pointer;">GIFTS BY PRICE</h5>
+                                     <div class="second">
+                                        <p>$15 & Under Gifts</p>
+                                        <p>$30 & Under Gifts</p>
+                                        <p>$50 & Under Gifts</p>
+                                    </div>
+                                    </span>
+                                    <span class="dropinner">
+                                        <h5 style="cursor: pointer;">GIFTS BY RECIPIENTS</h5>
+                                        <div class="second">
+                                      <p>Gifts For Hers</p>
+                                      <p>Gifts For Him</p>
+                                      <p>Gifts For Everyone</p>
+                                       </div>
+                                      
+                                    </span>
+                                    <span class="dropinner">
+                                     <h5 style="cursor: pointer;">FALL SHOP</h5>
+                                     <div class="second">
+                                   <p>Gifts Boxes & Bags Accessories</p>
+                                    </div>
+                                    </span>
+                                    <span class="dropinner">
+                                     <h5 style="cursor: pointer;">GIFTS CARDS</h5>
+                                     <div class="second">
+                                   <p>E-Gifts Card</p>
+                                   <p>Gift Card</p>
+                                    </div>
+                                    </span>
+                                    <span class="dropinner">
+                                     <h5 style="cursor: pointer;">EXPLORE GIFTS</h5>
+                                     <div class="second"></div>
+                                    </span>
+                                       
+                                       
+                                    </div>
+                                   </div>
+                        </span>
+            <span class="dropdown">
+                                    <p class="dropbtn_last" style="color:red;cursor: pointer;"onclick="fall()">FALL SHOPS</p>
+                                    <div style="width:40%;" class="dropdown-content">
+                                            <div class="heads">
+                                             <span class="dropinner">
+                                                <h5 style="cursor: pointer;">NEW & NOW</h5>
+                                                <div style="margin-left:-30px;"class="second">
+                                               <p>New Arrivals</p>
+                                               <p>Tops Fragrances</p>
+                                               <p>Fall Collection</p>
+                                               <p>Holloween</p>
+                                               <p>Best Sellers</p>
+                                              </div>
+                                               </span>
+                                             <span class="dropinner">
+                                             <h5 style="width:100px;cursor: pointer;">EXPLORE FALL SHOP</h5>
+                                             <div style="margin-left:-30px" class="second">
+                                                <p>Aromatherapy Shop</p>
+                                                <p>Get Inspired</p>
+                                                <p>Shop By Fragrance</p>
+                                            </div>
+                                            </span>
+                                               
+                                            </div>
+                                           </div>
+                         </span>
+            </div>
+            <img id="menuicon1" src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.219/on/demandware.static/Sites-BathAndBodyWorks-Site/-/default/dw40cc94b6/images/svg-icons/UI-Search-v2.svg?yocs=o_s_" alt="">
+            <img id="logo" src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.219/on/demandware.static/Sites-BathAndBodyWorks-Site/-/default/dw22126b8b/images/svg-icons/Logos-main.svg?yocs=o_s_" alt="">
+        </div>
+        <div>
+            <input type="text" name="" id="search" placeholder="Search by fragrance or product...">
+            <i class="fa fa-search" style="font-size:24px;margin-top:-10px;margin-left:-25px ;"></i>
+            <img id="acc" src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.219/on/demandware.static/Sites-BathAndBodyWorks-Site/-/default/dw88f6c71d/images/svg-icons/UI-MyAccount.svg?yocs=o_s_" alt="">
+            
+            <img id="carti"onclick="cart()" src="https://cdn-icons-png.flaticon.com/512/7096/7096688.png" alt="">
+        </div>
+    </div>
+    </div>
+    <div id="searchdiv"></div>
+
+   <div id="menubars">
+    <p onclick="topfun()">TOP OFFFERS</p>
+<span class="dropdown">
+        <p class="dropbtn" style="cursor: pointer;" onclick="bodycare()">BODY CARE</p>
+        <div class="dropdown-content">
+                <div class="heads">
+                 <span class="dropinner">
+                    <h4 style="cursor: pointer;">NEW & NOW</h4>
+                    <div class="second">
+                        <p>|  All Aromatherapy</p></div>
+                   </span>
+                 <span class="dropinner">
+                 <h4 style="cursor: pointer;">BATH & SHOWER</h4>
+                 <div class="second">
+                    <p>All Bath & Shower</p>
+                    <p>Body Wash & Showergel</p>
+                    <p>Body Scrub</p>
+                   </div>
+                </span>
+                <span class="dropinner">
+                    <h4 style="cursor: pointer;">MOISTURIZERS</h4>
+                    <div class="second">
+                    <p>All Moisturizers</p>
+                        <p>Body Lotion</p>
+                        <p>Body Cream</p>
+                        <p>Hand Cream</p>
+                      </div>
+                   </span>
+                   <span class="dropinner">
+                    <h4 style="cursor: pointer;">FRAGRANCE</h4>
+                    <div class="second">
+                        <p>All Fragrance</p>
+                        <p>Body Sprays & Mists</p>
+                        <p>Perfume & Cologne</p>
+                      </div>
+                   </span>
+                   <span class="dropinner">
+                    <h4 style="cursor: pointer;">EXPLORE BODYCARE</h4>
+                    <div class="second">
+                        <h5>BodyCare Offers:</h5>
+                 <p>Buy 3, Get 1 Free All Full Size Body Care</p>
+                 <p>3/$12 Shea Butter Cleansing Bars</p>
+                 <p>Buy 3,Get 1 Free Select Travel, Hand & Lip Care</p>
+                      </div>
+                   </span>
+                </div>
+               </div>
+            </span>
+<span class="dropdown">
+                 <p class="dropbtn" style="cursor: pointer;" onclick="candle()">CANDLES</p>
+                 <div style="width:50%;" class="dropdown-content">
+                         <div class="heads">
+                          <span class="dropinner">
+                             <h4 style="cursor: pointer;">ALL CANDLES</h4>
+                             <div class="second">
+                                 <p>3 Wick Candled</p>
+                                <p>Single Wick Candles</p>
+                            <p>Candles Holders & Accessories</p></div>
+                            </span>
+                          <span class="dropinner">
+                          <h4 style="cursor: pointer;">FEATURED</h4>
+                          <div class="second">
+                             <p>The White Barm Shok</p>
+                            </div>
+                         </span>
+                         <span class="dropinner">
+                             <h4 style="cursor: pointer;">EXPLORE CANDLES</h4>
+                             <div class="second">
+                             <h5>Candles Offers:</h5>
+                             <p>2/$ 22 Single Wick Candles</p>
+                               </div>
+                            </span>
+                            </div>
+                        </div>
+            </span>
+<span class="dropdown">
+                        <p class="dropbtn" style="cursor: pointer;" onclick="wall()">WALLFLOWERS & AIR FRESHENERS</p>
+                        <div style="width:50%;"class="dropdown-content">
+                                <div class="heads">
+                                 <span class="dropinner">
+                                    <h4 style="cursor: pointer;">AIR FRESHENERS</h4>
+                                    <div class="second">
+                                    <p>All Wallflower</p>
+                                    <p>Wallflowers Plugs </p>
+                                    <p>Room Sprays & Mists</p>
+                                    <p>Car Fragrance</p>
+                                     </div>
+                                   </span>
+                                 <span class="dropinner">
+                                 <h4 style="cursor: pointer;">FEATURED</h4>
+                                 <div class="second">
+                                    <p>Auto Refresh Wallflowers</p>
+                                   </div>
+                                </span>
+                                <span class="dropinner">
+                                    <h4 style="cursor: pointer;">EXPLORE WALLFLOWERS & AIR FRESHENERS</h4>
+                                    <div class="second">
+                                    <h5>Wallflowers & Air Fresheners Offers:</h5>
+                                    <p>$ 3.95 All Wallflowers Fragrance Refills</p>
+                                     <p>3/$ 10 Car Fragrance Refills</p>
+                                </div>
+                                   </span>
+                                   </div>
+                               </div>
+            </span>
+<span class="dropdown">
+        <p class="dropbtn" style="cursor: pointer;" onclick="men()">MEN'S SHOP</p>
+        <div style="width:30%;" class="dropdown-content">
+                <div class="heads">
+                 <span class="dropinner">
+                    <h4 style="cursor: pointer;">THE MEN'S SHOPS</h4>
+                    <div class="second">
+                   <p>All Men's Body Care</p>
+                   <p>Body Wash & Shower get Moisturizers</p>
+                   <p>Body Sprays Cologne</p>
+                   <p>Home Fragrance</p>
+                     </div>
+                   </span>
+                 <span class="dropinner">
+                 <h4 style="cursor: pointer;">EXPLORE MEN'S SHOPS</h4>
+                 <div class="second">
+                    <p>Hand Soap & Sanitizers</p>
+                   </div>
+                </span>
+                </div>
+               </div>
+             </span>
+<span class="dropdown">
+                <p class="dropbtn" style="cursor: pointer;" onclick="gift()">GIFTS</p>
+                <div style="width:18%;" class="dropdown-content">
+                        <div class="heads">
+                         <span class="dropinner">
+                            <h4 style="cursor: pointer;">FEATURED</h4>
+                            <div class="second">
+                           <p>Gifts Sets</p>
+                          </div>
+                           </span>
+                         <span class="dropinner">
+                         <h4 style="cursor: pointer;">GIFTS BY PRICE</h4>
+                         <div class="second">
+                            <p>$15 & Under Gifts</p>
+                            <p>$30 & Under Gifts</p>
+                            <p>$50 & Under Gifts</p>
+                        </div>
+                        </span>
+                        <span class="dropinner">
+                            <h4 style="cursor: pointer;">GIFTS BY RECIPIENTS</h4>
+                            <div class="second">
+                          <p>Gifts For Hers</p>
+                          <p>Gifts For Him</p>
+                          <p>Gifts For Everyone</p>
+                           </div>
+                          
+                        </span>
+                        <span class="dropinner">
+                         <h4 style="cursor: pointer;">FALL SHOP</h4>
+                         <div class="second">
+                       <p>Gifts Boxes & Bags Accessories</p>
+                        </div>
+                        </span>
+                        <span class="dropinner">
+                         <h4 style="cursor: pointer;">GIFTS CARDS</h4>
+                         <div class="second">
+                       <p>E-Gifts Card</p>
+                       <p>Gift Card</p>
+                        </div>
+                        </span>
+                        <span class="dropinner">
+                         <h4 style="cursor: pointer;">EXPLORE GIFTS</h4>
+                         <div class="second"></div>
+                        </span>
+                           
+                           
+                        </div>
+                       </div>
+            </span>
+<span class="dropdown">
+                        <p class="dropbtn_last" style="color:red;cursor: pointer;" onclick="fall()">FALL SHOPS</p>
+                        <div style="width:10%;" class="dropdown-content">
+                                <div class="heads">
+                                 <span class="dropinner">
+                                    <h4 style="margin-left:-40px;cursor: pointer;">NEW & NOW</h4>
+                                    <div style="margin-left:-30px;"class="second">
+                                   <p>New Arrivals</p>
+                                   <p>Tops Fragrances</p>
+                                   <p>Fall Collection</p>
+                                   <p>Holloween</p>
+                                   <p>Best Sellers</p>
+                                  </div>
+                                   </span>
+                                 <span class="dropinner">
+                                 <h4 style="margin-left:-40px;width:100px;cursor: pointer;">EXPLORE FALL SHOP</h4>
+                                 <div style="margin-left:-30px" class="second">
+                                    <p>Aromatherapy Shop</p>
+                                    <p>Get Inspired</p>
+                                    <p>Shop By Fragrance</p>
+                                </div>
+                                </span>
+                                   
+                                </div>
+                               </div>
+             </span>
+</div>
+ <div id="vips"><h3>My Bath & Body Works Rewards is now available nationwide!  <a href=""style="color:rgb(24,118,181)">JOIN THE VIPS</a></h3></div>
+<div id="upper_text"><a style="color:gray;"href="index.html">HOME </a>  /  SIGN IN OR SIGN UP</div>
+    <div id="signimg" style="margin-top:20px ;"><img src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.219/on/demandware.static/-/Sites-BathAndBodyWorks-Library/default/dw67bc4699/images/banners/sign-in_d.png?yocs=s_" alt=""></div>
+     <div id="signtext" style="margin-top:30px ;"><p>Sign In or Sign Up</p></div>
+     <div id="detail">
+        <div>
+            <div><p>SIGN IN</p>
+            <p style="color:gray;">If you already have an account with us, sign in below</p></div>
+            <div id="wrong">Oops! This doesn't match our records. Please try again.</div>
+            <div id="innerd">
+            <label>Email Address</label>
+          <input type="text" id="email">
+          <label for="email">Password</label>
+          <input type="password" id="password">
+            </div>
+          
+          <div id="forpass">
+            <a href="" style="color:red;">Forgot Password?</a>
+            <div>
+                <input type="checkbox" name="_remember_me" checked/>
+             <label for="">Remember me</label>
+            </div>
+            
+          </div>
+          <div id="submit">
+            <a href="">Privacy Policy</a>
+            <button id="signsub">SIGN IN</button>
+        </div>
+          </div>
+           
+        <div id="signup">
+            <div id="signuptext">
+                <p>SIGN UP</p>
+                <p style="color:gray;margin-bottom:10px;">Create an account to access the best of your favorite store</p>
+            </div>
+            <div id="signupbtn">
+                <img id="signupimg"src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.219/on/demandware.static/-/Sites-BathAndBodyWorks-Library/default/dw0f47b7b9/images/loyalty/boc-launch-prospects_lacb_0.jpg?yocs=s_" alt="">
+                <button id="signsub">CREATE AN ACCOUNT</button>
+            </div>
+        </div>
+     </div>
+
+     <div id="footer">
+        <div class="sub">
+          <p style="margin-bottom:20px ;">Get email offers & the latest news from Bath & Body Works</p>
+          <label>Enter Email</label>
+          <input type="email" name="" id="email">
+          <label for="">Confirm Email</label>
+          <input type="email" name="" id="coemail">
+           <input type="submit" name="" id="subsubmit">
+            <p>GET CONNECTED</p>
+            <div class="social">
+              <a href="#" class="fa fa-facebook"></a>
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="#" class="fa fa-instagram"></a>
+              <a href="#" class="fa fa-linkedin"></a>
+              <a href="#" class="fa fa-pinterest"></a>
+              <a href="#" class="fa fa-reddit"></a>
+                </div>
+    </div>
+    <div id="footerc"><h2>LET US HELP</h2></div>
+          <div id="footertext">
+            <div>
+              <h5>CUSTOMER CARE</h5>
+              <p>Help & FAQs</p>
+              <p>Shipping</p>
+              <p>Return & Exchanges</p>
+              <p>Oder Tracking</p>
+              <p>Corporate Sales & Gifts</p>
+              <p>Contact Us</p>
+            </div>
+            <div>
+              <h5>My Account</h5>
+              <p>Sign In or Sign Up</p>
+              <p>Order Tracking</p>
+              <p>My Auto Refresh</p>
+              <p>My Love-it List</p>
+            </div>
+            <div>
+              <h5>DISCOVER</h5>
+              <p>About Us</p>
+              <p>Careers</p>
+              <p>Gift Cards</p>
+              <p>Shop by Fragrance</p>
+              <p>Product Ingredients</p>
+              <p>Get Inspired</p>
+              <p>Diversity, Equity & Inclusion</p>
+            </div>
+            <div>
+              <h5>FIND US</h5>
+              <p>Store Locator</p>
+              <p>Global Locations</p>
+            </div>
+          </div>
+       </div>
+       
+       <div id="lastfooter">
+        <p>Terms Of Use | Privacy Policy | Security Bug Report | States Privacy Rights Notice (Certain States) | Do Not Sell or Share My Personal Information (Certain States) | Transparency in Supply Chains Targeted Ad Preferences (Certain States) | Limit the Use of My Sensitive Personal Information (California) |</p>
+         <p style="margin-top:30px ;">© 2022 Bath & Body Works Direct, Inc.
+          All Rights Reserved.</p>
+      </div>
+    </body>
+</html>
+<script>
+    
+    let img1=document.querySelector("#acc");
+    let search=document.querySelector("#search");
+    let img2=document.querySelector("#carti")
+    search.addEventListener("click",function(){
+        search.style.width="500px"
+       img1.style.display="none"
+       img2.style.display="none"
+    })
+    search.addEventListener("blur",function(){
+        search.style.width="300px"
+       img1.style.display="block"
+       img2.style.display="block"
+    })
+    let body=document.querySelector("body");
+
+    document.getElementById("menuicon1").addEventListener("click",function(){
+        document.querySelector("#menubars1").style.display="grid";
+        document.querySelector("#menuicon0").style.display="none"
+        document.querySelector("#menubars1").style.right="50%";
+       
+
+    })
+   let create_acc=document.querySelector("#signupbtn>#signsub");
+   create_acc.addEventListener("click",function(){
+    document.location.href="signup.html"    
+   })
+   let getdata=JSON.parse(localStorage.getItem("new_user"))||[];
+   let email=document.querySelector("#email");
+   let password=document.querySelector("#password");
+   
+   getdata.forEach(function(el){
+    document.querySelector("#signsub").addEventListener("click",function(){
+        if(el.email===email.value){
+        if(el.password===password.value){
+           
+            document.location.href="index.html"
+        }else{
+            document.querySelector("#wrong").style.display="block";
+        }
+     }else{
+        document.querySelector("#wrong").style.display="block";
+
+     }
+    
+    })
+   })
+   function cart(){
+    document.location.href="cart.html"
+ }
+</script>
